@@ -1,7 +1,7 @@
 import Foundation
 
 public struct ToastItem: Identifiable, Equatable, Sendable {
-    public enum Tone: Equatable, Sendable {
+    public enum Tone: CaseIterable, Equatable, Sendable {
         case neutral
         case success
         case error

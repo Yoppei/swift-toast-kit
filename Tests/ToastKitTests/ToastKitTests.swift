@@ -26,16 +26,76 @@ struct ToastKitTests {
         #expect(item.tone == .neutral)
     }
 
-    @Test func configuration_storesSingleStyleAndHaptics() {
-        let style = ToastStyle(backgroundColor: .red, foregroundColor: .white)
-        let configuration = ToastConfiguration(
-            style: style,
+    @Test func toneTheme_returnsPresentationForEachTone() {
+        let neutral = ToastTonePresentation(
+            style: ToastStyle(backgroundColor: .blue, foregroundColor: .white),
+            haptics: nil
+        )
+        let success = ToastTonePresentation(
+            style: ToastStyle(backgroundColor: .green, foregroundColor: .white),
+            haptics: .success
+        )
+        let error = ToastTonePresentation(
+            style: ToastStyle(backgroundColor: .red, foregroundColor: .white),
             haptics: .error
         )
+        let theme = ToastToneTheme(
+            neutral: neutral,
+            success: success,
+            error: error
+        )
 
-        #expect(configuration.style.backgroundColor == style.backgroundColor)
-        #expect(configuration.style.foregroundColor == style.foregroundColor)
-        #expect(configuration.haptics == .error)
+        #expect(theme[.neutral] == neutral)
+        #expect(theme[.success] == success)
+        #expect(theme[.error] == error)
+    }
+
+    @Test func configuration_presentationOverride_takesPrecedenceOverToneTheme() {
+        let theme = ToastToneTheme(
+            neutral: ToastTonePresentation(
+                style: ToastStyle(backgroundColor: .blue, foregroundColor: .white),
+                haptics: nil
+            ),
+            success: ToastTonePresentation(
+                style: ToastStyle(backgroundColor: .green, foregroundColor: .white),
+                haptics: .success
+            ),
+            error: ToastTonePresentation(
+                style: ToastStyle(backgroundColor: .red, foregroundColor: .white),
+                haptics: .error
+            )
+        )
+        let override = ToastTonePresentation(
+            style: ToastStyle(backgroundColor: .orange, foregroundColor: .black),
+            haptics: .warning
+        )
+        let configuration = ToastConfiguration(
+            toneTheme: theme,
+            presentationOverride: override
+        )
+
+        #expect(configuration.presentationOverride == override)
+        #expect(configuration.toneTheme[.success] != override)
+    }
+
+    @Test func defaultTheme_definesNeutralSuccessErrorExpectedly() {
+        let theme = ToastToneTheme.default
+
+        #expect(theme.neutral.haptics == nil)
+        #expect(theme.success.haptics == .success)
+        #expect(theme.error.haptics == .error)
+    }
+
+    @Test func haptics_isOptionalAndCanBeDisabledPerTone() {
+        let theme = ToastToneTheme(
+            neutral: ToastTonePresentation(style: .default, haptics: nil),
+            success: ToastTonePresentation(style: .default, haptics: nil),
+            error: ToastTonePresentation(style: .default, haptics: .error)
+        )
+
+        #expect(theme[.neutral].haptics == nil)
+        #expect(theme[.success].haptics == nil)
+        #expect(theme[.error].haptics == .error)
     }
 
     @Test func defaultConfiguration_respectsTopSafeAreaWithOffset() {

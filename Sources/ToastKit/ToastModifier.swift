@@ -20,17 +20,17 @@ public struct ToastModifier: ViewModifier {
     public func body(content: Content) -> some View {
         let presentedItem = normalized(item)
         let hapticsTrigger = presentedItem.map { HapticsTrigger(id: $0.id, tone: $0.tone) }
-        let resolvedHaptics = configuration.haptics
-        let feedback = resolvedHaptics ?? .success
+        let resolvedPresentation = presentedItem.map(resolvedPresentation(for:))
+        let feedback = resolvedPresentation?.haptics ?? .success
 
         let baseView = content
             .overlay {
                 GeometryReader { proxy in
                     ZStack(alignment: .top) {
-                        if let presentedItem {
+                        if let presentedItem, let resolvedPresentation {
                             ToastCapsuleView(
                                 item: presentedItem,
-                                style: configuration.style
+                                style: resolvedPresentation.style
                             )
                                 .padding(.top, topPadding(safeAreaTop: proxy.safeAreaInsets.top))
                                 .padding(.horizontal, 16)
@@ -60,8 +60,12 @@ public struct ToastModifier: ViewModifier {
             feedback,
             trigger: hapticsTrigger
         ) { _, newValue in
-            newValue != nil && resolvedHaptics != nil
+            newValue != nil && resolvedPresentation?.haptics != nil
         }
+    }
+
+    private func resolvedPresentation(for item: ToastItem) -> ToastTonePresentation {
+        configuration.presentationOverride ?? configuration.toneTheme[item.tone]
     }
 
     private func normalized(_ item: ToastItem?) -> ToastItem? {
