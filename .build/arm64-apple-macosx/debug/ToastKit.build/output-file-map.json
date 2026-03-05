@@ -1,0 +1,33 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/master.swiftdeps"
+  },
+  "/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastConfiguration.swift": {
+    "dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.d",
+    "object": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.swift.o",
+    "swiftmodule": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration~partial.swiftmodule",
+    "swift-dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.swiftdeps",
+    "diagnostics": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.dia"
+  },
+  "/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastItem.swift": {
+    "dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.d",
+    "object": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.swift.o",
+    "swiftmodule": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem~partial.swiftmodule",
+    "swift-dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.swiftdeps",
+    "diagnostics": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.dia"
+  },
+  "/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastModifier.swift": {
+    "dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.d",
+    "object": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.swift.o",
+    "swiftmodule": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier~partial.swiftmodule",
+    "swift-dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.swiftdeps",
+    "diagnostics": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.dia"
+  },
+  "/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/View+Toast.swift": {
+    "dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.d",
+    "object": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.swift.o",
+    "swiftmodule": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast~partial.swiftmodule",
+    "swift-dependencies": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.swiftdeps",
+    "diagnostics": "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.dia"
+  }
+}

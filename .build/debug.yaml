@@ -1,0 +1,112 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "ToastKit-arm64-apple-macosx26.0-debug.module": ["<ToastKit-arm64-apple-macosx26.0-debug.module>"]
+  "ToastKitPackageTests-arm64-apple-macosx26.0-debug.module": ["<ToastKitPackageTests-arm64-apple-macosx26.0-debug.module>"]
+  "ToastKitPackageTests-arm64-apple-macosx26.0-debug.test": ["<ToastKitPackageTests-arm64-apple-macosx26.0-debug.test>"]
+  "ToastKitTests-arm64-apple-macosx26.0-debug.module": ["<ToastKitTests-arm64-apple-macosx26.0-debug.module>"]
+  "main": ["<ToastKit-arm64-apple-macosx26.0-debug.module>"]
+  "test": ["<ToastKit-arm64-apple-macosx26.0-debug.module>","<ToastKitPackageTests-arm64-apple-macosx26.0-debug.test>","<ToastKitTests-arm64-apple-macosx26.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/ypi/Development/swift-toast-kit/Tests/ToastKitTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastConfiguration.swift","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastItem.swift","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastModifier.swift","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/View+Toast.swift"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/sources"]
+    description: "Write auxiliary file /Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/sources"
+
+  "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.derived/runner.swift"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/sources"]
+    description: "Write auxiliary file /Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/sources"
+
+  "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: []
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.derived/runner.swift"]
+
+  "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/runner.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/ToastKitTests.swift.o"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.product/Objects.LinkFileList"
+
+  "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ypi/Development/swift-toast-kit/Tests/ToastKitTests/ToastKitTests.swift"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/sources"]
+    description: "Write auxiliary file /Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/sources"
+
+  "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<ToastKit-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKit.swiftmodule"]
+    outputs: ["<ToastKit-arm64-apple-macosx26.0-debug.module>"]
+
+  "<ToastKitPackageTests-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/runner.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitPackageTests.swiftmodule"]
+    outputs: ["<ToastKitPackageTests-arm64-apple-macosx26.0-debug.module>"]
+
+  "<ToastKitPackageTests-arm64-apple-macosx26.0-debug.test>":
+    tool: phony
+    inputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.xctest/Contents/MacOS/ToastKitPackageTests"]
+    outputs: ["<ToastKitPackageTests-arm64-apple-macosx26.0-debug.test>"]
+
+  "<ToastKitTests-arm64-apple-macosx26.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/ToastKitTests.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitTests.swiftmodule"]
+    outputs: ["<ToastKitTests-arm64-apple-macosx26.0-debug.module>"]
+
+  "C.ToastKit-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastConfiguration.swift","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastItem.swift","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/ToastModifier.swift","/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/View+Toast.swift","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/sources"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKit.swiftmodule"]
+    description: "Compiling Swift Module 'ToastKit' (4 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","ToastKit","-emit-dependencies","-emit-module","-emit-module-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKit.swiftmodule","-output-file-map","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/sources","-I","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/include/ToastKit-Swift.h","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","swift_toast_kit"]
+
+  "C.ToastKitPackageTests-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.derived/runner.swift","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitTests.swiftmodule","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/sources"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/runner.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'ToastKitPackageTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","ToastKitPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitPackageTests.swiftmodule","-output-file-map","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/sources","-I","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/include/ToastKitPackageTests-Swift.h","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","swift_toast_kit"]
+
+  "C.ToastKitPackageTests-arm64-apple-macosx26.0-debug.test":
+    tool: shell
+    inputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastConfiguration.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastItem.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/ToastModifier.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/View+Toast.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.build/runner.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/ToastKitTests.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.xctest/Contents/MacOS/ToastKitPackageTests"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/ToastKitPackageTests.xctest/Contents/MacOS/ToastKitPackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug","-o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.xctest/Contents/MacOS/ToastKitPackageTests","-module-name","ToastKitPackageTests","-Xlinker","-no_warn_duplicate_libraries","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitPackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx14.0","-Xlinker","-add_ast_path","-Xlinker","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKit.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitPackageTests.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitTests.swiftmodule","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.ToastKitTests-arm64-apple-macosx26.0-debug.module":
+    tool: shell
+    inputs: ["/Users/ypi/Development/swift-toast-kit/Tests/ToastKitTests/ToastKitTests.swift","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKit.swiftmodule","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/sources"]
+    outputs: ["/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/ToastKitTests.swift.o","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitTests.swiftmodule"]
+    description: "Compiling Swift Module 'ToastKitTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","ToastKitTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules/ToastKitTests.swiftmodule","-output-file-map","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/output-file-map.json","-parse-as-library","-incremental","-c","@/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKitTests.build/sources","-I","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j8","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-swift-version","6","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","swift_toast_kit"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/ypi/Development/swift-toast-kit/Sources/ToastKit/","/Users/ypi/Development/swift-toast-kit/Tests/ToastKitTests/","/Users/ypi/Development/swift-toast-kit/Package.swift","/Users/ypi/Development/swift-toast-kit/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
