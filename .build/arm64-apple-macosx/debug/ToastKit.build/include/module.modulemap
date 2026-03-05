@@ -1,3 +1,0 @@
-module ToastKit {
-    header "/Users/ypi/Development/swift-toast-kit/.build/arm64-apple-macosx/debug/ToastKit.build/include/ToastKit-Swift.h"
-}
